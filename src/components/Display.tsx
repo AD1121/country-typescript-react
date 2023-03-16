@@ -25,11 +25,17 @@ const [future, setFuture] = useState(futureArray)
 
   const title = 'Länder jag har rest till'
 
+  const addCountry = (name: string) => {
+    
+  const newArray = [...future, {name: name, visited: false}]
+  setFuture(newArray)
+  }
+
   return (
     <>
       <div className="container">
         <div className ="search-container">
-          <Input></Input>
+          <Input addCountry={addCountry}></Input>
         </div>
         <CPast pastArray={past} title={title}></CPast>
         <CFuture futureArray={future}></CFuture>
