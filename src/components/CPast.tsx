@@ -1,13 +1,17 @@
-export default function CPast (){
+import { Country } from "./country"
+
+interface IProps {
+  pastArray : Country[]
+  title: string
+}
+
+export default function CPast ( {pastArray,title}: IProps){
   return (
     <>
       <ul>
-        <p>Länder jag har rest till:</p>
-        <li>- Norge</li>
-        <li>- Kina</li>
-        <li>- Vietnam</li>
-        <li>- Spanien</li>
-      </ul>
+        <p> {title}:</p>
+        {pastArray.map(c => <li> {c.name} </li>)}
+       </ul>
     </>
   )
 }
