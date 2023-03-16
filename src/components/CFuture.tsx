@@ -1,12 +1,19 @@
-export default function CFuture (){
+import { useState } from "react"
+import { Country } from "./country"
+
+interface ICFuture {
+  futureArray: Country[]
+}
+
+export default function CFuture ({futureArray} : ICFuture){
+
+const [visible, setVisible] = useState(false)
+
   return (
     <>
       <ul>
-        <p>Länder jag vill resa till:</p>
-        <li>- USA</li>
-        <li>- Kambodya</li>
-        <li>- Kenya</li>
-        <li>- Danmark</li>
+        <p onClick={() => setVisible(!visible)}>Länder jag vill resa till:</p>
+        {visible && futureArray.map(c => <li> {c.name} </li>)}
       </ul>
     </>
   )
