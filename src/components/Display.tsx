@@ -14,10 +14,10 @@ const pastArray = [
 ]
 
 const futureArray = [
-  new Country(5,'USA', true),
-  new Country(6,'Kambodya', true),
-  new Country(7,'Kenya', true),
-  new Country(8,'Danmark', true)
+  new Country(5,'USA', false),
+  new Country(6,'Kambodya', false),
+  new Country(7,'Kenya', false),
+  new Country(8,'Danmark', false)
 ]
 
 export default function Display(){
@@ -33,15 +33,15 @@ const [future, setFuture] = useState(futureArray)
   }
 
   const changeVisited = (id: number) => {
-    console.log(id);
-    
-    // Target the li element that was clicked on
-
     // Location of the country
-
-    // Change the boolean value 
-
-    // Update the set method
+    const updateArray = future.map(country => {
+      if(id === country.id) {
+        return {...country, visited: !country.visited }
+      } return country
+    })
+    setFuture(updateArray)
+    console.log(updateArray);
+    
   }
 
   const cPast = past.map((c) => <LisOfCountries key={c.id} name={c.name} id={c.id} changeVisited={changeVisited}></LisOfCountries>)
