@@ -14,7 +14,7 @@ export default function CPast ( {pastArray,title}: ICPast){
     <>
       <ul>
         <p onClick={() => setVisible(!visible)}> {title}:</p>
-        {visible && pastArray.map(c => <li> {c.name} </li>)}
+        {pastArray.map(c => <li> {c.name} </li>)}
        </ul>
     </>
   )
